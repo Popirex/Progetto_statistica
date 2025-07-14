@@ -1,0 +1,1 @@
+Funzione random in p5.js --> distribuzione normale, probabilita equa. The version of random() with no parameters returns a random number from 0 up to but not including 1. Quindi per le probabilita dovro solo chiamare random

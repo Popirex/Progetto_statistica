@@ -1,0 +1,47 @@
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Tema generale */
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  /* Contenitore principale */
+  .content {
+    max-width: 900px;
+    width: 100%;
+  }
+  
+  /* Titoli */
+  h1, h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  
+  /* Paragrafi */
+  p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  /* iFrame (simulazione) */
+  iframe {
+    margin: 2rem 0;
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  }
+  
