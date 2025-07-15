@@ -2,11 +2,14 @@
 let lcm_alpha = 0.01;
 
 // NUMERO DI FOTONI NELLA SIMULAZIONE
-quantita_fotoni = 5;
+quantita_fotoni = 1000;
 
 quantita_contatto_aria = 0;
 
 quantita_scappati = 0;
+
+//  LIBERO CAMMINO MEDIO DEL FOTONE CALCOLATO COME PRODOTTO DELLA LUNGHEZZA DEL CAVO DI FIBRA OTTICA E IL VALORE ALPHA DELL'LCM -> variabie globale
+lcm = lcm_alpha * 800;
 
 
 
@@ -50,15 +53,9 @@ class Fotone{
   //  VARIABILE BOOLEANA  PER VEDERE SE IL FOTONE E' DA ELIMINARE O MENO, DATO CHE VIENE  ELIMINATO NEL DRAW LOOP. (fatto per poter gestire migliaia di fotoni)
     this.elimina = false;
 
-  //  LIBERO CAMMINO MEDIO DEL FOTONE CALCOLATO COME PRODOTTO DELLA LUNGHEZZA DEL CAVO DI FIBRA OTTICA E IL VALORE ALPHA DELL'LCM
-    this.lcm = width*lcm_alpha;
-
   //  VARIABILE PER TENERE TRACCIA DELLA LUNGHEZZA TOTALE PERCORSA DAL FOTONE QUANDO VIENE ELIMINATO
     this.lunghezza_volo = 0;
 
-    
-    
-    
   }
   
   disegna(){
@@ -97,7 +94,7 @@ class Fotone{
     this.traiettoria.push(this.pos.copy());
 
     //VERIFICO SE LA DISTANZA (TRA LA POSIZIONE SALVATA PRECEDENTEMENTE E LA POSIZIONE ATTUALE) E' MAGGIORE DEL LIBERO CAMMINO MEDIO
-    if(dist(this.pos.x,  this.pos.y, this.flag_posizione.x, this.flag_posizione.y) >= this.lcm){
+    if(dist(this.pos.x,  this.pos.y, this.flag_posizione.x, this.flag_posizione.y) >= lcm){
 
       //SALVO LA POSIZIONE ATTUALE PER  IL  CALCOLO DELLA DISTANZA IN FUTURO
       this.flag_posizione.x = this.pos.x;

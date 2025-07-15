@@ -54,7 +54,7 @@ function draw() {
     let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
     let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
     console.log('');
-    console.log('Con ' + quantita_fotoni + ' fotoni: il ' + percentuale_interagiti_aria + "% ha interagito con l'aria e il " + percentuale_scappati + "% e' uscito dal cavo.")
+    console.log('Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ': il ' + percentuale_interagiti_aria + "% ha interagito con l'aria e il " + percentuale_scappati + "% e' uscito dal cavo.")
   }
   
 }
