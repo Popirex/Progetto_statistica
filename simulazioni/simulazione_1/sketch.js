@@ -1,7 +1,9 @@
-let quantita_fotoni = 1;
-
+//CREAZIONE ARRAY E VARIABILE PER CREARE IL CAVO DI FIBRA OTTICA E I FOTONI
 let fotoni = [];
 let cavo;
+let terminato = false; // variabile per vedere se ho gia stampato le percentuali
+
+//CREO IL CAVO, I FOTONI E IL CANVAS NEL SETUP
 function setup() {
   
   cavo = new Cavo();
@@ -11,15 +13,48 @@ function setup() {
   createCanvas(800, 400);
 }
 
+//INIZIO IL CICLO DRAW (ESEGUITO 60 VOLTE AL SECONDO) E DISEGNO IL BACKGROUND IMMEDIATAMENTE
 function draw() {
-  
-
   background(255);
+
+  //DISEGNO IL CAVO DI FIBRA OTTICA COME PRIMA COSA PER AVERE I FOTONI SOPRA
   cavo.disegna();
+
+  //ITERO PER TUTTI I FOTONI NELL'ARRAY
   for(let i = fotoni.length-1; i >= 0; i--){
+
+    //SE NON SONO ELIMINATI LI DISEGNO E LI ANIMO
+    if(!fotoni[i].elimina){
     fotoni[i].disegna();
     fotoni[i].muovi();
-    if(fotoni[i].pos.x > width || fotoni[i].a >= 0.995) fotoni.splice(i, 1); // splice si chiama sull'array fotoni non sul singolo fotone fotoni[i] e p = 0.005 di scomparire
+    }
+
+    //SE SONO ELIMINATI
+    else{ 
+
+      //CREO UNA VARIABILE MOMENTANEA CON IL FOTONE CORRENTE PER COMODITA'
+      let fotone_momentaneo = fotoni[i];
+
+      //ITERO PER TUTTI I VERTICI DELLA TRAIETTORIA IN MODO DA CALCOLARE LA DISTANZA TOTALE PERCORSA, POI LA STAMPO E RIMUOVO IL FOTONE DALLA SIMULAZIONE (VISTO CHE HA IL FLAG ELIMINATO == TRUE)
+      for(let i = 1; i < fotone_momentaneo.traiettoria.length; i++){
+        let distanza_vertici = dist(fotone_momentaneo.traiettoria[i].x, fotone_momentaneo.traiettoria[i].y, fotone_momentaneo.traiettoria[i-1].x, fotone_momentaneo.traiettoria[i-1].y);
+        fotone_momentaneo.lunghezza_volo += distanza_vertici;
+      }
+
+      console.log('distanza totale percorsa: ' + round(fotone_momentaneo.lunghezza_volo) + ' pixel');
+      
+      fotoni.splice(i, 1);
+    }
+
+  }
+
+  //VERIFICO CHE TUTTI I FOTONI SIANO STATI ELIMINATI, SE SI CALCOLO LA PERCENTUALE DI INTERAGITI E DI SCAPPATI E LA STAMPO
+  if(fotoni.length == 0 && terminato == false){
+    terminato = true;
+    let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
+    let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
+    console.log('');
+    console.log('Con ' + quantita_fotoni + ' fotoni: il ' + percentuale_interagiti_aria + "% ha interagito con l'aria e il " + percentuale_scappati + "% e' uscito dal cavo.")
   }
   
 }
