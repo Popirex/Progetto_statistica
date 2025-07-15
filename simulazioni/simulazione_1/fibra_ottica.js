@@ -2,7 +2,7 @@
 let lcm_alpha = 0.01;
 
 // NUMERO DI FOTONI NELLA SIMULAZIONE
-quantita_fotoni = 1000;
+quantita_fotoni = 100;
 
 quantita_contatto_aria = 0;
 
