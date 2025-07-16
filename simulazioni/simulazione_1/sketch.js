@@ -58,9 +58,8 @@ function draw() {
 
   }
 
-  //VERIFICO CHE TUTTI I FOTONI SIANO STATI ELIMINATI, SE SI CALCOLO LA PERCENTUALE DI INTERAGITI E DI SCAPPATI E LA STAMPO, ho tolto && terminato == false
-  if(fotoni.length == 0){
-    terminato = true;
+
+  terminato = true;
     let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
     let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
     let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ' e una probabilità a = ' +  a + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';
@@ -69,6 +68,6 @@ function draw() {
     textAlign(LEFT);   // Allineamento
     text(messaggio_finale, 10, height - 20);  // Posizione
 
-  }
+  //VERIFICO CHE TUTTI I FOTONI SIANO STATI ELIMINATI, SE SI CALCOLO LA PERCENTUALE DI INTERAGITI E DI SCAPPATI E LA STAMPO, ho tolto && terminato == false
   
 }
