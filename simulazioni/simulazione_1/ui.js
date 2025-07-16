@@ -17,6 +17,7 @@ resetButton.addEventListener("click", () => {
   quantita_fotoni = num_fotoni;
   lcm_alpha = lcm_alpha_input;
   lcm = lcm_alpha * width;
+  prob_a = a;
 
   // RESETTO I CONTATORI PER LE NUOVE PERCENTUALI AL TERMINE DELLA SIMULAZIONE
   quantita_contatto_aria = 0;

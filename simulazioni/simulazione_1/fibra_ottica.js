@@ -1,7 +1,7 @@
 //VALORE ALPHA PER MODIFICARE IL LIBERO CAMMINO MEDIO
 let lcm_alpha = 0.01;
 
-let a = 0.01
+let prob_a = 0.01
 
 // NUMERO DI FOTONI NELLA SIMULAZIONE
 quantita_fotoni = 100;
@@ -46,7 +46,7 @@ class Fotone{
     this.traiettoria = [];
 
   //  PROBABILITA A -> PROBABILITA CHE IL FOTONE INTERAGISCA CON L'ARIA E SCOMPAIA (DA MODIFICARE PER RACCOLGIERE DATI)
-    this.a = typeof a !== "undefined" ? a : a; // se non e' definita la imposto a 0.01
+    this.a = typeof a !== "undefined" ? a : prob_a; // se non e' definita la imposto a 0.01
 
 
   //  FLAG UTILIZZATO PER VERIFICARE SE LA DISTANZA PERCORSA E' MINORE DEL LIBERO CAMMINO MEDIO && OGNI VOLTA CHE LA DIST. E' >= DEL LCM  il flag_posizione DIVENTA LA POSIZIONE CORRENTE DEL FOTONE. CIO PERMETTE 
