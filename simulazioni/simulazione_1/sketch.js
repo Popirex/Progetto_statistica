@@ -10,8 +10,18 @@ function setup() {
   for(let i = 0; i < quantita_fotoni; i++){
     fotoni[i] = new Fotone();
   }
-  createCanvas(800, 400);
+  createCanvas(1200, 400);
 }
+
+
+
+
+
+
+
+
+
+
 
 //INIZIO IL CICLO DRAW (ESEGUITO 60 VOLTE AL SECONDO) E DISEGNO IL BACKGROUND IMMEDIATAMENTE
 function draw() {
@@ -53,11 +63,9 @@ function draw() {
     terminato = true;
     let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
     let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
-    console.log('');
-    console.log('Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ': il ' + percentuale_interagiti_aria + "% ha interagito con l'aria e il " + percentuale_scappati + "% e' uscito dal cavo.");
-    let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';
+    let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ' e una probabilità a = ' +  a + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';
     fill(0);         // Colore del testo (bianco)
-    textSize(16);      // Dimensione del testo
+    textSize(15);      // Dimensione del testo
     textAlign(LEFT);   // Allineamento
     text(messaggio_finale, 10, height - 20);  // Posizione
 

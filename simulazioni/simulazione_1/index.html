@@ -5,21 +5,45 @@
   <title>Simulazione Luce</title>
   <script src="https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  body {
+    background-color: #000; /* nero per contrasto */
+    color: white;           /* testo bianco */
+  }
 
-    html, body {
-      width: 800px;
-      height: 400px;
-      overflow: hidden;
-    }
-  </style>
+  input, button {
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+    padding: 5px;
+    margin: 4px 0;
+  }
+
+  label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  #controls {
+    font-size: 1rem;
+    font-family: sans-serif;
+  }
+</style>
 </head>
+
+
 <body>
   <script src="fibra_ottica.js"></script>
   <script src="sketch.js"></script>
+
+  <body>
+
+  <div style="padding: 10px;">
+    <label>a (probabilità interazione): <input type="number" id="aInput" min="0" max="1" step="0.01" value="0.01" /></label><br />
+    <label>lcm_alpha: <input type="number" id="lcmInput" min="0.01" max="10" step="0.0001" value="0.01" /></label><br />
+    <label>Numero fotoni: <input type="number" id="numInput" min="1" max="10000" value="20" /></label><br />
+    <button id="resetButton">Resetta simulazione</button>
+  </div>
+
+  <script src="ui.js"></script>
 </body>
 </html>

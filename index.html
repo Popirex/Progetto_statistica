@@ -9,18 +9,29 @@
 <body>
   <div class="content">
     <h1>Simulazione: Trasmissione della Luce</h1>
+    <h6>Meriti a: Alessandro Rossi, Tommaso Lana.</h6>
     <p>
-      Questa simulazione mostra il comportamento di particelle di luce che attraversano una fibra ottica.
-      È stato usato un modello probabilistico Monte Carlo per rappresentare riflessioni, assorbimenti e diffusione interna.
+      Questa simulazione mostra il comportamento di fotoni che attraversano una sezione circolare di fibra ottica.
+      Per la raccolta dati e la creazione dei grafici abbiamo utilizzato un modello probabilistico "Monte carlo".
     </p>
 
-    <iframe src="simulazioni/simulazione_1/index.html" width="800" height="400"></iframe>
+    <h2>Simulazione in tempo reale</h2>
+    <p>
+      Per rendere l'esperienza migliore all'utente abbiamo aggiunto una simulazione con parametri modificabili in tempo reale.
+      Consigliamo di non inserire un numero troppo elevato di fotoni dato che potrebbe causare rallentamenti sul vostro dispositivo,
+      inoltre rammentiamo che questa simulazione è puramente visiva e non permette di ottenere dati statisticamente rilevanti dato il ristretto numero di fotoni.
+      Per questo motivo è stata creata una copia del programma che, dopo essere stata modificata, è stata utilizzata sul famoso ambiente di programmazione Processing,
+      in modo da poter utilizzare le sue elevate prestazioni e raccogliere dati con un numero maggiore di fotoni.
+    </p>
+
+    <h3>Legenda Variabili:</h3>
+    <h5>- Probabilità a:  è la probabilità che il fotone interagisca con l'aria e scompaia.</h5>
+    <h5>- LCM_ALPHA: è il valore alpha per modificare il libero cammino medio con la formula LCM = LCM_ALPHA * WIDTH.</h5>
+    <h5>- Numero Fotoni: per impostare il numero di fotoni nella simulazioni. ( max raccomandati 1000, questa simulazione ne supporta fino a 10'000)</h5>
+    <iframe src="simulazioni/simulazione_1/index.html" width="1230" height="700"></iframe>
 
     <h2>Analisi Statistica</h2>
-    <p>
-      Sono state eseguite diverse simulazioni per stimare la frazione di luce trasmessa e la sua varianza,
-      valutando come queste grandezze cambiano al variare del cammino libero medio (LCM) e del coefficiente di assorbimento.
-    </p>
+    
   </div>
 </body>
 </html>
