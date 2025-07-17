@@ -14,7 +14,7 @@ quantita_scappati = 0;
 
 quantita_deviati = 0;
 
-visione_traiettoria = false;
+visione_traiettoria = 0;
 
 //  LIBERO CAMMINO MEDIO DEL FOTONE CALCOLATO COME PRODOTTO DELLA LUNGHEZZA DEL CAVO DI FIBRA OTTICA E IL VALORE ALPHA DELL'LCM -> variabie globale
 lcm = lcm_alpha * 800;

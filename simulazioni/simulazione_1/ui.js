@@ -3,17 +3,19 @@ const dInput = document.getElementById("dInput");
 const lcmInput = document.getElementById("lcmInput");
 const numInput = document.getElementById("numInput");
 const resetButton = document.getElementById("resetButton");
-const trajectoryButton = document.getElementById("trajectoryButton");
+const traiettoriaSlider = document.getElementById('traiettoria');
 
-trajectoryButton.addEventListener("click", () =>{
-    visione_traiettoria = !visione_traiettoria;
-});
+/*
+traiettoriaSlider.addEventListener('input', () => {
+  visione_traiettoria = traiettoriaSlider.value;
+}); */
 
 resetButton.addEventListener("click", () => {
   const a = parseFloat(aInput.value);
   const lcm_alpha_input = parseFloat(lcmInput.value);
   const num_fotoni = parseInt(numInput.value);
   const d = parseFloat(dInput.value);
+  const valore_slider = traiettoriaSlider.value;
     if (isNaN(a) || isNaN(lcm_alpha_input) || isNaN(num_fotoni) || isNaN(d)) {
     alert("Inserisci valori validi.");
     return;
@@ -26,6 +28,7 @@ resetButton.addEventListener("click", () => {
   lcm = lcm_alpha * width;
   prob_a = a;
   prob_d = d;
+  visione_traiettoria = valore_slider;
 
   // RESETTO I CONTATORI PER LE NUOVE PERCENTUALI AL TERMINE DELLA SIMULAZIONE
   quantita_contatto_aria = 0;
