@@ -16,6 +16,8 @@ quantita_deviati = 0;
 
 visione_traiettoria = 0;
 
+fotone_polarizzato = 0;
+
 //  LIBERO CAMMINO MEDIO DEL FOTONE CALCOLATO COME PRODOTTO DELLA LUNGHEZZA DEL CAVO DI FIBRA OTTICA E IL VALORE ALPHA DELL'LCM -> variabie globale
 lcm = lcm_alpha * 800;
 
@@ -46,7 +48,12 @@ class Fotone{
     this.colore = random (0, 360); // assegno un colore randomico per ogni fotone (da 0 a 360 perche utilizzo la scala di colori HSB)
     this.r = 4;
     this.pos = createVector(0, random(100+(this.r/2), 300-(this.r/2))); //posizione di partenza
-    this.angolo = radians(random(-89,90)); //angolo di partenza casuale in radianti per i vettori
+    if (fotone_polarizzato == 1){
+      this.angolo= radians(0)
+    }
+    else{
+      this.angolo = radians(random(-89,90)); //angolo di partenza casuale in radianti per i vettori
+    }
     this.direzione = p5.Vector.fromAngle(this.angolo); // vettore direzione unitario dato dall'angolo
     this.velocita = 5;
   //  ARRAY CONTENENTE TUTTI I VERTICI DELLA TRAIETTORIA (USATI PER DISEGNARE LA TRAIETTORIA E CALCOLARE LA DISTANZA TOTALE PERCORSA)
@@ -70,7 +77,12 @@ class Fotone{
     this.deviato = 0;
 
   // ALL'INZIO NON SI VEDE LA TRAIETTORIA
-    this.visione_traiettoria = 0; 
+    this.visione_traiettoria = 0;
+    
+  //all'inizio i fotoni non sono polarizzati
+    this.fotone_polarizzato = 0;
+  
+  
 
   }
   
@@ -96,7 +108,8 @@ class Fotone{
     endShape();
     }
   }
-  
+    
+
   
   muovi(){
 
