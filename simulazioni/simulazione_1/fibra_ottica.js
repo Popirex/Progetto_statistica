@@ -70,7 +70,7 @@ class Fotone{
     this.deviato = 0;
 
   // ALL'INZIO NON SI VEDE LA TRAIETTORIA
-    this.visione_traiettoria = false; 
+    this.visione_traiettoria = 0; 
 
   }
   
@@ -86,7 +86,7 @@ class Fotone{
 
     
     /*DISEGNO LA TRAIETTORIA DEL FOTONE */
-    if(this.visione_traiettoria){
+    if(this.visione_traiettoria == 1){
     noFill();
     stroke(0, 50);
     beginShape();
