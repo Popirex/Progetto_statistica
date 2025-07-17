@@ -49,7 +49,7 @@ class Fotone{
 
   //  PROBABILITA A -> PROBABILITA CHE IL FOTONE INTERAGISCA CON L'ARIA E SCOMPAIA (DA MODIFICARE PER RACCOLGIERE DATI)
     this.a = typeof a !== "undefined" ? a : prob_a; // se non e' definita la imposto a 0.01
-
+    this.d = typeof d !== "undefined" ? d : prob_d
 
   //  FLAG UTILIZZATO PER VERIFICARE SE LA DISTANZA PERCORSA E' MINORE DEL LIBERO CAMMINO MEDIO && OGNI VOLTA CHE LA DIST. E' >= DEL LCM  il flag_posizione DIVENTA LA POSIZIONE CORRENTE DEL FOTONE. CIO PERMETTE 
   //  DI VEDERE SE IL FOTONE INTERAGISCE CON CON L'ARIA OGNI VOLTA CHE LA DISTANZA DEL LIBERO CAMMINO MEDIO E' PERCORSA
@@ -70,14 +70,14 @@ class Fotone{
     ellipse(this.pos.x, this.pos.y, this.r, this.r);
 
 
-    /*DISEGNO LA TRAIETTORIA DEL FOTONE */
-    noFill();
-    stroke(0, 50);
-    beginShape();
-    for(let p of this.traiettoria){
-        vertex(p.x, p.y);
-    }
-    endShape();
+  //  /*DISEGNO LA TRAIETTORIA DEL FOTONE */
+  //  noFill();
+  //  stroke(0, 50);
+  //  beginShape();
+  //  for(let p of this.traiettoria){
+  //      vertex(p.x, p.y);
+  //  }
+  //  endShape();
 
   }
   
@@ -86,9 +86,29 @@ class Fotone{
   
     //CONTROLLO SE IL FOTONE TOCCA LA PARETE DEL CAVO, SE SI INVERTO LA DIREZIONE Y POICHE' RIMBALZA
       let probabilita_d = random()
-      if (this.pos.y < 100 + (this.r / 2) || this.pos.y >= 300 - (this.r / 2)) {
-          if (this.d >= probabilita_d) {
-              this.angolo = radians(random(-89, 90))
+      if (this.pos.y <= 100 + (this.r / 2) || this.pos.y >= 300 - (this.r / 2)) {
+        let haColpitoLimiteSuperiore = false;
+        let haColpitoLimiteInferiore = false;
+    
+        // Determina quale limite è stato colpito e aggancia la posizione
+        if (this.pos.y <= 100 + (this.r / 2)) {
+            this.pos.y = 100 + (this.r / 2); // Aggancia al limite superiore
+            haColpitoLimiteSuperiore = true;
+        }
+        if (this.pos.y >= 300 - (this.r / 2)) {
+            this.pos.y = 300 - (this.r / 2); // Aggancia al limite inferiore
+            haColpitoLimiteInferiore = true;
+        }
+        if (this.d >= probabilita_d) {
+          // Logica per rimbalzo con angolo casuale
+          if (haColpitoLimiteSuperiore) {
+              // Se ha colpito sopra, deve andare in giù (angolo positivo)
+              this.angolo = radians(random(0, 89));
+          } else if (haColpitoLimiteInferiore) {
+              // Se ha colpito sotto, deve andare in su (angolo negativo)
+              this.angolo = radians(random(-89, 0));
+          }
+            this.direzione = p5.Vector.fromAngle(this.angolo)
           }
           else
               this.direzione.y *= -1;
