@@ -3,6 +3,8 @@ let lcm_alpha = 0.01;
 
 let prob_a = 0.01
 
+let prob_d = 0.01
+
 // NUMERO DI FOTONI NELLA SIMULAZIONE
 quantita_fotoni = 100;
 
@@ -83,8 +85,13 @@ class Fotone{
   muovi(){
   
     //CONTROLLO SE IL FOTONE TOCCA LA PARETE DEL CAVO, SE SI INVERTO LA DIREZIONE Y POICHE' RIMBALZA
-    if(this.pos.y < 100+(this.r/2) || this.pos.y >= 300-(this.r/2)){
-      this.direzione.y *= -1;
+      let probabilita_d = random()
+      if (this.pos.y < 100 + (this.r / 2) || this.pos.y >= 300 - (this.r / 2)) {
+          if (this.d >= probabilita_d) {
+              this.angolo = radians(random(-89, 90))
+          }
+          else
+              this.direzione.y *= -1;
 
       //TODO: AGGIUNGERE LA PROBABILITA' d CHE A CONTATTO CON LA PARETE IL FOTONE VENGA DIFFUSO (ALTERAZIONE DEL SUO ANGOLO)
       //let deviazione = radians(random(-15,15))

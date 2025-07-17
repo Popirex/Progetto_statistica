@@ -2,13 +2,14 @@ const aInput = document.getElementById("aInput");
 const lcmInput = document.getElementById("lcmInput");
 const numInput = document.getElementById("numInput");
 const resetButton = document.getElementById("resetButton");
+const dInput = document.getElementById("dInput");
 
 resetButton.addEventListener("click", () => {
   const a = parseFloat(aInput.value);
   const lcm_alpha_input = parseFloat(lcmInput.value);
   const num_fotoni = parseInt(numInput.value);
-
-  if (isNaN(a) || isNaN(lcm_alpha_input) || isNaN(num_fotoni)) {
+  const d = parseFloat(dInput.value)
+    if (isNaN(a) || isNaN(lcm_alpha_input) || isNaN(num_fotoni) || isNaN(d)) {
     alert("Inserisci valori validi.");
     return;
   }
@@ -18,6 +19,7 @@ resetButton.addEventListener("click", () => {
   lcm_alpha = lcm_alpha_input;
   lcm = lcm_alpha * width;
   prob_a = a;
+  prob_d = d;
 
   // RESETTO I CONTATORI PER LE NUOVE PERCENTUALI AL TERMINE DELLA SIMULAZIONE
   quantita_contatto_aria = 0;
@@ -29,7 +31,7 @@ resetButton.addEventListener("click", () => {
   for (let i = 0; i < quantita_fotoni; i++) {
     let f = new Fotone();
     f.a = a;  // AGGIORNO LA PROBABILITA A PER OGNI NUOVA SIMULAZIONE
-
+    f.d =d
     //      TO DO: SE TE LO DIMENTICHI SEI COGLIONE
     //QUANDO CI SARA LA PROBABILITA D SARA DA MODIFICARE QUI E AGGIUNGERE  f.d = d; 
     fotoni.push(f);
