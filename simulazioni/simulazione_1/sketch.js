@@ -25,6 +25,7 @@ function setup() {
 
 //INIZIO IL CICLO DRAW (ESEGUITO 60 VOLTE AL SECONDO) E DISEGNO IL BACKGROUND IMMEDIATAMENTE
 function draw() {
+  frameRate(15);
   background(255);
 
   //DISEGNO IL CAVO DI FIBRA OTTICA COME PRIMA COSA PER AVERE I FOTONI SOPRA
@@ -33,10 +34,17 @@ function draw() {
   //ITERO PER TUTTI I FOTONI NELL'ARRAY
   for(let i = fotoni.length-1; i >= 0; i--){
 
+    if(fotoni[i].deviato == 1){
+      quantita_deviati+=1;
+      fotoni[i].deviato++;
+    }
+
     //SE NON SONO ELIMINATI LI DISEGNO E LI ANIMO
     if(!fotoni[i].elimina){
-    fotoni[i].disegna();
+    //PROVA PER VEDERE SE CONVIENE PRIMA CALCOLARE LA DIREZIONE E POI DISEGNARE O VICEVERSA
     fotoni[i].muovi();
+    fotoni[i].disegna();
+    //fotoni[i].muovi();
     }
 
     //SE SONO ELIMINATI
@@ -58,16 +66,19 @@ function draw() {
 
   }
 
-
-  terminato = true;
-    let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
-    let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
-    let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ', una probabilità a = ' +  prob_a + 'e una probabilità d = ' + prob_d + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';
-    fill(0);         // Colore del testo (bianco)
-    textSize(15);      // Dimensione del testo
-    textAlign(LEFT);   // Allineamento
-    text(messaggio_finale, 10, height - 20);  // Posizione
-
   //VERIFICO CHE TUTTI I FOTONI SIANO STATI ELIMINATI, SE SI CALCOLO LA PERCENTUALE DI INTERAGITI E DI SCAPPATI E LA STAMPO, ho tolto && terminato == false
+  terminato = true;
+  let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
+  let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
+  let percentuale_deviati = round((quantita_deviati / quantita_fotoni) * 100)
+  let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ', una probabilità a = ' +  prob_a + ' e una probabilità d = ' + prob_d + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';    
+  let messaggio_deviati = 'Il ' + percentuale_deviati + '% dei fotoni è stato diffuso almeno una volta con un nuovo angolo.'
+  fill(0);         // Colore del testo (bianco)
+  textSize(15);      // Dimensione del testo
+  textAlign(LEFT);   // Allineamento
+  text(messaggio_finale, 10, height - 20);  // TESTO CON POSIZIONE
+  text(messaggio_deviati, 10, height - 5); // TESTO CON POSIZIONE
+
+  
   
 }

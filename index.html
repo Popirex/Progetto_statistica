@@ -17,11 +17,11 @@
 
     <h2>Simulazione in tempo reale</h2>
     <p>
-      Per rendere l'esperienza migliore all'utente abbiamo aggiunto una simulazione con parametri modificabili in tempo reale.
+      Per migliorare l'esperienza dell'utente abbiamo aggiunto una simulazione con parametri modificabili in tempo reale.
       Consigliamo di non inserire un numero troppo elevato di fotoni dato che potrebbe causare rallentamenti sul vostro dispositivo,
       inoltre rammentiamo che questa simulazione è puramente visiva e non permette di ottenere dati statisticamente rilevanti dato il ristretto numero di fotoni.
-      Per questo motivo è stata creata una copia del programma che, dopo essere stata modificata, è stata utilizzata sul famoso ambiente di programmazione Processing,
-      in modo da poter utilizzare le sue elevate prestazioni e raccogliere dati con un numero maggiore di fotoni.
+      Per questo motivo è stato creato un programma uguale per quanto riguarda la meccanica simulativa, ma con il linguaggio java in modo da poter usare il famoso ambiente di programmazione Processing che,
+      viste le sue elevate prestazioni ci permette di raccogliere dati con un numero maggiore di fotoni.
     </p>
 
     <h3>Legenda Variabili:</h3>
@@ -29,7 +29,28 @@
     <h5>- Probabilità d:  è la probabilità che il fotone interagendo con il bordo prenda un angolo casuale.</h5>  
     <h5>- LCM_ALPHA: è il valore alpha per modificare il libero cammino medio con la formula LCM = LCM_ALPHA * WIDTH. (width in quest caso è 1200)</h5>
     <h5>- Numero Fotoni: per impostare il numero di fotoni nella simulazioni. ( max raccomandati 1000, questa simulazione ne supporta fino a 10'000)</h5>
-    <iframe src="simulazioni/simulazione_1/index.html" width="1215" height="700"></iframe>
+    <iframe src="simulazioni/simulazione_1/index.html" width="1230" height="800"></iframe>
+    <h2>Informazioni utili:</h2>
+    <p>
+      Ecco cosa accade in modo che possiate capire a pieno il funzionamento della simulazione.
+      Un fotone viene creato con delle coordinate inizialie (comprese ovviamente tra le coordinate del tubo di fibra ottica), contenute dentro un vettore bidimensionale, un colore assegnato casualmente, un vettore direzione determinato anche in base all'angolo casuale
+      assegnato a ogni fotone e una velocità che, ad ogni frame, viene sommata al vettore direzione che aggiorna immediatamente il vettore posizione.
+    </p>
+    <h6>Dopo essere stato creato inizia a viaggiare all'interno del tubo:</h6>
+    <p>
+      A questo punto la durata di vita del fotone non è determinabile, esso infatti è soggetto a dei cambiamenti.
+      All'inizio del programma abbiamo definito un LCM o libero cammino medio, questo dato rappresenta la lunghezza media percorsa da un fotone prima che esso abbia una determinata probabilità (la probabilita a) di interagire 
+      con l'aria che lo circonda; se dovesse interagire il fotone viene assorbito completamente e scompare dalla simulazione.
+      Sia il LIBERO CAMMINO MEDIO che la PROBABILITÀ A sono stati resi modificabili, in modo che l'utente possa sperimentare con diverse impostazioni e vedre come si evolve la simulazione nel tempo.
+      Quando il fotone arriva a toccare una parete del cavo di fibra ottica esso rimbalza, il problema è che non sempre i fotoni "rimbalzano" con un angolo pari a quello con cui sono arrivari (riflessione perfetta),
+      infatti a volte l'angolo può subire una variazione, determinata con l'estrazione di un numero casuale con l'utilizzo di una distribuzione uniforme, dove ogni numero ha stessa probabilità di essere estratto.
+      Una volta che abbiamo il nuovo angolo lo utilizziamo per modificare il vettore direzione e dopodichè aggiorniamo la posizione del fotone.
+      Per facilitare il riconoscimento di un fotone che e' stato diffuso ne modifichiamo il colore casualmente.
+    </p>
+    <p>
+      Infine nella parte inferiore della simulazione sono state messe due scritte, una mostra i dati in tempo reale e le percentuali dei fotoni che hanno interagito con l'aria e di quelli che sono riusciti a uscire dalla sezione di fibra ottica.
+      La seconda scritta mostra quanti dei fotoni totali sono stati diffusi ALMENO una volta, non teniamo conto di quante volte viene diffuso ogni singolo fotone, ma solo se ha subito una diffusione o meno.
+    </p>
 
     <h2>Analisi Statistica</h2>
     
