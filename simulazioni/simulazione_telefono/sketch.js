@@ -10,7 +10,7 @@ function setup() {
   for(let i = 0; i < quantita_fotoni; i++){
     fotoni[i] = new Fotone();
   }
-  createCanvas(1200, 400);
+  createCanvas(920, 400);
 }
 
 
@@ -66,12 +66,14 @@ function draw() {
 
   }
 
+  cavo.bordo();
+
   //VERIFICO CHE TUTTI I FOTONI SIANO STATI ELIMINATI, SE SI CALCOLO LA PERCENTUALE DI INTERAGITI E DI SCAPPATI E LA STAMPO, ho tolto && terminato == false
   terminato = true;
   let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
   let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
   let percentuale_deviati = round((quantita_deviati / quantita_fotoni) * 100)
-  let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ', una probabilità a = ' +  prob_a + ' e una probabilità d = ' + prob_d + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';    
+  let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + round(lcm) + ', una probabilità a = ' +  prob_a + ' e una probabilità d = ' + prob_d + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';    
   let messaggio_deviati = 'Il ' + percentuale_deviati + '% dei fotoni è stato diffuso almeno una volta con un nuovo angolo.'
   fill(0);         // Colore del testo (bianco)
   textSize(15);      // Dimensione del testo

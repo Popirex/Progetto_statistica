@@ -18,20 +18,28 @@
     <h2>Simulazione in tempo reale</h2>
     <p>
       Per migliorare l'esperienza dell'utente abbiamo aggiunto una simulazione con parametri modificabili in tempo reale.
-      Consigliamo di non inserire un numero troppo elevato di fotoni dato che potrebbe causare rallentamenti sul vostro dispositivo,
+      Consigliamo di non inserire un numero troppo elevato di fotoni e di non attivare le traiettorie se avete hardware datato o siete su dispositivi mobili dato che potrebbe causare rallentamenti sul vostro dispositivo,
       inoltre rammentiamo che questa simulazione è puramente visiva e non permette di ottenere dati statisticamente rilevanti dato il ristretto numero di fotoni.
       Per questo motivo è stato creato un programma uguale per quanto riguarda la meccanica simulativa, ma con il linguaggio java in modo da poter usare il famoso ambiente di programmazione Processing che,
       viste le sue elevate prestazioni ci permette di raccogliere dati con un numero maggiore di fotoni.
     </p>
 
-    <h3>Legenda Variabili:</h3>
-    <h5>- Probabilità a:  è la probabilità che il fotone interagisca con l'aria e scompaia.</h5>
-    <h5>- Probabilità d:  è la probabilità che il fotone interagendo con il bordo prenda un angolo casuale.</h5>  
-    <h5>- LCM_ALPHA: è il valore alpha per modificare il libero cammino medio con la formula LCM = LCM_ALPHA * WIDTH. (width in quest caso è 1200)</h5>
-    <h5>- Numero Fotoni: per impostare il numero di fotoni nella simulazioni. ( max raccomandati 1000, questa simulazione ne supporta fino a 10'000)</h5>
-    <h5>- Traiettoria: questo slider se messo a destra permette di vedere la traiettoria nelle simulazioni future, se messo a sinistra la rende invisibile.</h5>
-    <iframe src="simulazioni/simulazione_1/index.html" width="1230" height="950"></iframe>
-    <h2>Informazioni utili:</h2>
+
+    <h3>Per dare la possibilità a tutti di interagire con la simulazione abbiamo inserito due versioni in base al dispositivo su cui siete.</h3>
+    
+    <!-- IMMAGINE DI ANTEPRIMA DELLA SIMULAZIONE-->
+    <div class="text-center my-4">
+      <img src="immagini/immagine_simulazione.png" alt="Anteprima simulazione" class="img-fluid rounded shadow">
+    </div>
+
+
+    <!--LINK PER LE DUE VERSIONI-->
+    <div class="text-center mb-5">
+      <a href="simulazioni/simulazione_pc/index.html" class="btn btn-primary m-2">Simulazione per PC</a>
+      <a href="simulazioni/simulazione_telefono/index.html" class="btn btn-success m-2">Simulazione per Telefono/Tablet</a>
+    </div>
+
+    <h2>Come funziona:</h2>
     <p>
       Ecco cosa accade in modo che possiate capire a pieno il funzionamento della simulazione.
       Un fotone viene creato con delle coordinate inizialie (comprese ovviamente tra le coordinate del tubo di fibra ottica), contenute dentro un vettore bidimensionale, un colore assegnato casualmente, un vettore direzione determinato anche in base all'angolo casuale

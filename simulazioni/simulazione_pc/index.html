@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulazione Luce</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5/lib/p5.min.js"></script>
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+  body {
+    background-color: #000; /* nero per contrasto */
+    color: white;           /* testo bianco */
+  }
+
+  input, button {
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+    padding: 5px;
+    margin: 4px 0;
+  }
+
+  label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  #controls {
+    font-size: 1rem;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+
+
+<body>
+
+  <h3>Legenda Variabili:</h3>
+    <h5>- Probabilità a:  è la probabilità che il fotone interagisca con l'aria e scompaia.</h5>
+    <h5>- Probabilità d:  è la probabilità che il fotone interagendo con il bordo prenda un angolo casuale.</h5>  
+    <h5>- LCM_ALPHA: è il valore alpha per modificare il libero cammino medio con la formula LCM = LCM_ALPHA * WIDTH e rappresenta la distanza media che un fotone percorre prima di interagire con l'aria. (width in quest caso è 1200)</h5>
+    <h5>- Numero Fotoni: per impostare il numero di fotoni nella simulazioni. ( max raccomandati 1000, questa simulazione ne supporta fino a 10'000)</h5>
+    <h5>- Traiettoria: questo slider se messo a destra permette di vedere la traiettoria nelle simulazioni future, se messo a sinistra la rende invisibile.</h5>
+
+    
+  <h3>Per maggiori informazioni sul funzionamento della simulazione:</h3>
+<div style="text-align: center; margin-bottom: 40px;">
+  <a href="../../index.html" class="btn">Torna alla Pagina Principale</a>
+</div>
+
+  <script src="fibra_ottica.js"></script>
+  <script src="sketch.js"></script>
+
+  <body>
+
+      <div style="padding: 10px;">
+  <label>
+    a (probabilità interazione):
+    <input type="number" id="aInput" min="0" max="1" step="0.01" value="0.01" />
+  </label>
+  <br />
+
+  <label>
+    d (probabilità angolo casuale dopo interazione con bordo):
+    <input type="number" id="dInput" min="0" max="1" step="0.01" value="0.01" />
+  </label>
+  <br />
+
+  <label>
+    lcm_alpha:
+    <input type="number" id="lcmInput" min="0.01" max="10" step="0.0001" value="0.01" />
+  </label>
+  <br />
+
+  <label>
+    Numero fotoni:
+    <input type="number" id="numInput" min="1" max="10000" value="20" />
+  </label>
+  <br />
+
+  <label for="traiettoria">Traiettoria:</label>
+  <input type="range" id="traiettoria" name="traiettoria" min="0" max="1" step="1" value="0" />
+  <br />
+
+  <label for="traiettoria">Polarizzata:</label>
+  <input type="range" id="polarizzata" name="polarizzata" min="0" max="1" step="1" value="0" />
+  <br />
+
+  <button id="resetButton">Resetta simulazione</button>
+</div>
+
+  <script src="ui.js"></script>
+
+
+  </body>
+</html>

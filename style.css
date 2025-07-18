@@ -30,6 +30,10 @@
     color: #ffffff;
     margin-bottom: 1rem;
   }
+
+  h5 {
+    margin-bottom: 30px;
+  }
   
   /* Paragrafi */
   p {
@@ -45,5 +49,20 @@
   margin-left: calc(30% - 400px + -30px); /* 400px = metà larghezza iframe */
   border: none;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.btn {
+  display: inline-block;
+  background-color: #7cbdf1;  /* Blu acceso */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;  /* Blu scuro al passaggio */
 }
   
