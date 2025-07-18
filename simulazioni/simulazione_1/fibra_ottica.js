@@ -34,6 +34,14 @@ class Cavo{
     fill('gray');
     rect(0, 50, width, 50); /*rettangolo del bordo superiore*/
     rect(0, 300, width, 50); /*rettangolo del bordo inferiore*/
+    stroke('black');
+    strokeWeight(5);
+    line(0, 50, width, 50);
+    line(0, 100, width, 100);
+    line(0, 300, width, 300);
+    line(0, 350, width, 350);
+    line(0, 100, width, 100);
+    strokeWeight(1);
   }
 
 }
@@ -140,7 +148,7 @@ class Fotone{
 
       if (this.d >= probabilita_d) {
         
-        let maxDeviazione = radians(30); // DEVIAZIONE POSSIBILE DA GRADI A RADIANTI, positivi o negativi
+        let maxDeviazione = radians(89); // DEVIAZIONE POSSIBILE DA GRADI A RADIANTI, positivi o negativi
         let deviazione = random(-maxDeviazione, maxDeviazione);
     
         // CALCOLO IL NUOVO ANGOLO IN BASE ALLA DEVIAZIONE
