@@ -42,18 +42,18 @@
     line-height: 1.6;
   }
   
-  /* iFrame (simulazione) */
+
   iframe {
   display: block;
   margin: 2rem auto;
-  margin-left: calc(30% - 400px + -30px); /* 400px = metà larghezza iframe */
+  margin-left: calc(30% - 400px + -30px); 
   border: none;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .btn {
   display: inline-block;
-  background-color: #7cbdf1;  /* Blu acceso */
+  background-color: #7cbdf1; 
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -63,6 +63,27 @@
 }
 
 .btn:hover {
-  background-color: #0056b3;  /* Blu scuro al passaggio */
+  background-color: #0056b3; 
 }
+
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.github-logo {
+  width: 50px;
+  height: auto;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.github-logo:hover {
+  transform: scale(1.2);
+}
+
   
