@@ -35,13 +35,6 @@
 
 <body>
 
-  <h3>Legenda Variabili:</h3>
-    <h5>- Probabilità a:  è la probabilità che il fotone interagisca con l'aria e scompaia.</h5>
-    <h5>- Probabilità d:  è la probabilità che il fotone interagendo con il bordo prenda un angolo casuale.</h5>  
-    <h5>- LCM_ALPHA: è il valore alpha per modificare il libero cammino medio con la formula LCM = LCM_ALPHA * WIDTH e rappresenta la distanza media che un fotone percorre prima di interagire con l'aria. (width in quest caso è 1200)</h5>
-    <h5>- Numero Fotoni: per impostare il numero di fotoni nella simulazioni. ( max raccomandati 1000, questa simulazione ne supporta fino a 10'000)</h5>
-    <h5>- Traiettoria: questo slider se messo a destra permette di vedere la traiettoria nelle simulazioni future, se messo a sinistra la rende invisibile.</h5>
-    <h5>- Polarizzazione: questo slider se messo a destra rende la luce polarizzata (angolo di entrata 90 gradi), se messo a sinistra l'angolo di entrata è casuale.</h5>
 
     
   <h3>Per maggiori informazioni sul funzionamento della simulazione:</h3>
@@ -56,34 +49,35 @@
 
       <div style="padding: 10px;">
   <label>
-    Probabilità A (interazione con aria, da 0 a 100%):
+    Probabilità a:  è la probabilità che il fotone interagisca con l'aria e scompaia. (interazione con aria, da 0 a 100%):
     <input type="number" id="aInput" min="0" max="100" step="0.01" value="1" />
   </label>
   <br />
 
   <label>
-    Probabilità d (diffusione, da 0 a 100%):
+     Probabilità d:  è la probabilità che il fotone interagendo con il bordo prenda un angolo casuale. (diffusione, da 0 a 100%):
     <input type="number" id="dInput" min="0" max="100" step="0.01" value="1" />
   </label>
   <br />
 
   <label>
-    lcm_alpha:
+    LCM_ALPHA: è il valore alpha per modificare il libero cammino medio con la formula LCM = LCM_ALPHA * WIDTH e rappresenta la distanza media che un fotone percorre prima di interagire con l'aria. (width in quest caso è 1200)
     <input type="number" id="lcmInput" min="0.01" max="10" step="0.0001" value="0.01" />
   </label>
   <br />
 
   <label>
-    Numero fotoni:
+    Numero Fotoni: per impostare il numero di fotoni nella simulazioni. ( max raccomandati 1000, questa simulazione ne supporta fino a 10'000)
     <input type="number" id="numInput" min="1" max="10000" value="20" />
   </label>
   <br />
 
-  <label for="traiettoria">Traiettoria:</label>
+  <label for="traiettoria">Traiettoria: questo slider se messo a destra permette di vedere la traiettoria nelle simulazioni future, se messo a sinistra la rende invisibile.</label>
   <input type="range" id="traiettoria" name="traiettoria" min="0" max="1" step="1" value="0" />
   <br />
 
-  <label for="traiettoria">Polarizzata:</label>
+  <label for="traiettoria">Polarizzazione: questo slider se messo a destra rende la luce polarizzata (angolo di entrata 90 gradi), se messo a sinistra l'angolo di entrata è casuale.</h5>
+</label>
   <input type="range" id="polarizzata" name="polarizzata" min="0" max="1" step="1" value="0" />
   <br />
 
