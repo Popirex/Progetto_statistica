@@ -48,7 +48,8 @@ function draw() {
     }
 
     //SE SONO ELIMINATI
-    else{ 
+    else{
+      /* 
 
       //CREO UNA VARIABILE MOMENTANEA CON IL FOTONE CORRENTE PER COMODITA'
       let fotone_momentaneo = fotoni[i];
@@ -60,7 +61,7 @@ function draw() {
       }
 
       console.log('distanza totale percorsa: ' + round(fotone_momentaneo.lunghezza_volo) + ' pixel');
-      
+      */
       fotoni.splice(i, 1);
     }
 
@@ -73,7 +74,7 @@ function draw() {
   let percentuale_interagiti_aria = round((quantita_contatto_aria / quantita_fotoni)*100);
   let percentuale_scappati = round((quantita_scappati / quantita_fotoni) * 100);
   let percentuale_deviati = round((quantita_deviati / quantita_fotoni) * 100)
-  let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ', una probabilità a = ' +  prob_a + ' e una probabilità d = ' + prob_d + ': il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';    
+  let messaggio_finale = 'Con ' + quantita_fotoni + ' fotoni e un LCM di ' + lcm + ', una probabilità a = ' +  prob_a*100 + '% e una probabilità d = ' + prob_d*100 + '%: il ' + percentuale_interagiti_aria + '% ha interagito con l\'aria e il ' + percentuale_scappati + '% è uscito dal cavo.';    
   let messaggio_deviati = 'Il ' + percentuale_deviati + '% dei fotoni è stato diffuso almeno una volta con un nuovo angolo.'
   fill(0);         // Colore del testo (bianco)
   textSize(15);      // Dimensione del testo

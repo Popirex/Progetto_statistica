@@ -176,9 +176,7 @@ class Fotone{
         if (nuovaDirezione.x < 0) {
           nuovaDirezione.x *= -1;
         }
-        
-        // PER TESTING: STAMPO LA DEVIAZIONE OGNI VOLTA CHE VIENE DEVIATO
-        console.log('deviazione angolo di ' + deviazione + ' radianti');
+
         this.direzione = nuovaDirezione;
 
         //SE L'ANGOLO VIENE DEVIATO MODIFICO IL COLORE DEL FOTONE PER FARLO NOTARE, SE NON TI PIACE TOMMY LO TOGLIAMO
@@ -190,45 +188,6 @@ class Fotone{
       }
     }
       
-    /*
-    //CONTROLLO SE IL FOTONE TOCCA LA PARETE DEL CAVO, SE SI INVERTO LA DIREZIONE Y POICHE' RIMBALZA
-      let probabilita_d = random()
-      if (this.pos.y <= 100 + (this.r / 2) || this.pos.y >= 300 - (this.r / 2)) {
-        let haColpitoLimiteSuperiore = false;
-        let haColpitoLimiteInferiore = false;
-    
-        // Determina quale limite è stato colpito e aggancia la posizione
-        if (this.pos.y <= 100 + (this.r / 2)) {
-            this.pos.y = 100 + (this.r / 2); // Aggancia al limite superiore
-            haColpitoLimiteSuperiore = true;
-        }
-        if (this.pos.y >= 300 - (this.r / 2)) {
-            this.pos.y = 300 - (this.r / 2); // Aggancia al limite inferiore
-            haColpitoLimiteInferiore = true;
-        }
-        if (this.d >= probabilita_d) {
-          // Logica per rimbalzo con angolo casuale
-          if (haColpitoLimiteSuperiore) {
-              // Se ha colpito sopra, deve andare in giù (angolo positivo)
-              this.angolo = radians(random(0, 89));
-          } else if (haColpitoLimiteInferiore) {
-              // Se ha colpito sotto, deve andare in su (angolo negativo)
-              this.angolo = radians(random(-89, 0));
-          }
-
-            console.log('deviazione angolo di ' + this.angolo + ' radianti');
-            this.direzione = p5.Vector.fromAngle(this.angolo)
-        }
-          else
-              this.direzione.y *= -1;
-
-
-          
-
-      //TODO: AGGIUNGERE LA PROBABILITA' d CHE A CONTATTO CON LA PARETE IL FOTONE VENGA DIFFUSO (ALTERAZIONE DEL SUO ANGOLO)
-      //let deviazione = radians(random(-15,15))
-    }
-      */
     //MODIFICO LA POSIZIONE DEL FOTONE CON IL PRODOTTO DELLA VELOCITA' (HARDCODED) E UNA COPIA DEL VETTORE DIREZIONE (A CAUSA DI ALCUNE LIMITAZIONI DELLA LIBRERIA E DELLA GESTIONE DEI VETTORI)
     this.pos.add(this.direzione.copy().mult((this.velocita)));
 

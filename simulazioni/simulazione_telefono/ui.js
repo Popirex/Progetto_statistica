@@ -12,10 +12,10 @@ traiettoriaSlider.addEventListener('input', () => {
 }); */
 
 resetButton.addEventListener("click", () => {
-  const a = parseFloat(aInput.value);
+  const a = parseFloat(aInput.value) / 100;
   const lcm_alpha_input = parseFloat(lcmInput.value);
   const num_fotoni = parseInt(numInput.value);
-  const d = parseFloat(dInput.value);
+  const d = parseFloat(dInput.value) / 100;
   const valore_slider = traiettoriaSlider.value;
   const valore_slider_polarizzato = polarizzatoSlider.value;
     if (isNaN(a) || isNaN(lcm_alpha_input) || isNaN(num_fotoni) || isNaN(d)) {

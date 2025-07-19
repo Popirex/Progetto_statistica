@@ -50,6 +50,7 @@ function draw() {
     //SE SONO ELIMINATI
     else{ 
 
+      /*
       //CREO UNA VARIABILE MOMENTANEA CON IL FOTONE CORRENTE PER COMODITA'
       let fotone_momentaneo = fotoni[i];
 
@@ -60,7 +61,7 @@ function draw() {
       }
 
       console.log('distanza totale percorsa: ' + round(fotone_momentaneo.lunghezza_volo) + ' pixel');
-      
+      */
       fotoni.splice(i, 1);
     }
 
