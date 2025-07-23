@@ -1,0 +1,7 @@
+con 500 000 fotoni:
+
+Processing:
+tutto disegnato: 13, 37, 40 minuti
+nulla disegnato: 01, 27, 16 minuti
+
+CONCLUSIONE: Non disegnare la simulazione ha causato un miglioramento del 89,34% delle prestazioni, scelta consigliata per raccolta dati.
