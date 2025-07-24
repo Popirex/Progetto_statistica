@@ -9,46 +9,40 @@
 <body>
   <div class="content">
     <h1>Trasmissione della Luce</h1>
-    
-  <h6>Meriti a:</h6>
 
+    <h6>Meriti a:</h6>
     <div class="author">
       <span>Alessandro Rossi</span>
       <a href="https://github.com/Popirex" target="_blank">
         <img src="immagini/logo_github.png" alt="GitHub" class="github-logo">
       </a>
     </div>
-
     <div class="author">
       <span>Tommaso Lana</span>
       <a href="https://github.com/Lanetto" target="_blank">
         <img src="immagini/logo_github.png" alt="GitHub" class="github-logo">
-
       </a>
     </div>
 
     <p>
-      Questa simulazione mostra il comportamento di fotoni che attraversano una sezione circolare di fibra ottica.
-      Per la raccolta dati e la creazione dei grafici abbiamo utilizzato un modello probabilistico "Monte carlo".
+      Questa simulazione mostra come si comportano fotoni che attraversano una fibra ottica. Il modello si basa su un approccio probabilistico di tipo Monte Carlo.
     </p>
 
     <h2>Simulazione in tempo reale</h2>
     <p>
-      Per migliorare l'esperienza dell'utente abbiamo aggiunto una simulazione con parametri modificabili in tempo reale.
-      Consigliamo di non inserire un numero troppo elevato di fotoni e di non attivare le traiettorie se avete hardware datato o siete su dispositivi mobili dato che potrebbe causare rallentamenti sul vostro dispositivo,
-      inoltre rammentiamo che questa simulazione è puramente visiva e non permette di ottenere dati statisticamente rilevanti dato il ristretto numero di fotoni.
-      Per questo motivo è stato creato un programma uguale per quanto riguarda la meccanica simulativa, ma con il linguaggio java in modo da poter usare il famoso ambiente di programmazione Processing che,
-      viste le sue elevate prestazioni ci permette di raccogliere dati con un numero maggiore di fotoni.
+      Puoi modificare in tempo reale i parametri della simulazione, come il numero di fotoni, la probabilità di interazione e il Libero Cammino Medio (LCM).  
+      La simulazione è pensata per scopi visivi: non usare numeri troppo elevati di fotoni su dispositivi mobili o datati, per evitare rallentamenti.
+    </p>
+    <p>
+      Per l’analisi statistica accurata, è disponibile una versione alternativa in Java (Processing), che consente di raccogliere dati da milioni di fotoni in modo efficiente.
     </p>
 
+    <h3>Versioni disponibili:</h3>
 
-    <h3>Per dare la possibilità a tutti di interagire con la simulazione abbiamo inserito due versioni in base al dispositivo su cui siete.</h3>
-    
     <!-- IMMAGINE DI ANTEPRIMA DELLA SIMULAZIONE-->
     <div class="text-center my-4">
       <img src="immagini/immagine_simulazione.png" alt="Anteprima simulazione" class="img-fluid rounded shadow">
     </div>
-
 
     <!--LINK PER LE DUE VERSIONI-->
     <div class="text-center mb-5">
@@ -56,30 +50,41 @@
       <a href="simulazioni/simulazione_telefono/index.html" class="btn btn-success m-2">Simulazione per Telefono/Tablet</a>
     </div>
 
-    <h2>Come funziona:</h2>
+    <h2>Come funziona</h2>
     <p>
-      Ecco cosa accade in modo che possiate capire a pieno il funzionamento della simulazione.
-      Un fotone viene creato con delle coordinate inizialie (comprese ovviamente tra le coordinate del tubo di fibra ottica), contenute dentro un vettore bidimensionale, un colore assegnato casualmente, un vettore direzione determinato anche in base all'angolo casuale
-      assegnato a ogni fotone e una velocità che, ad ogni frame, viene sommata al vettore direzione che aggiorna immediatamente il vettore posizione.
+      Ogni fotone viene inizializzato con:
+      posizione casuale nella sezione della fibra, direzione (casuale o parallela) e colore.
     </p>
-    <h6>Dopo essere stato creato inizia a viaggiare all'interno del tubo:</h6>
+
+    <h5>1. Movimento</h5>
     <p>
-      A questo punto la durata di vita del fotone non è determinabile, esso infatti è soggetto a dei cambiamenti.
-      All'inizio del programma abbiamo definito un LCM o libero cammino medio, questo dato rappresenta la lunghezza media percorsa da un fotone prima che esso abbia una determinata probabilità (la probabilita a) di interagire 
-      con l'aria che lo circonda; se dovesse interagire il fotone viene assorbito completamente e scompare dalla simulazione.
-      Sia il LIBERO CAMMINO MEDIO che la PROBABILITÀ A sono stati resi modificabili, in modo che l'utente possa sperimentare con diverse impostazioni e vedre come si evolve la simulazione nel tempo.
-      Quando il fotone arriva a toccare una parete del cavo di fibra ottica esso rimbalza, il problema è che non sempre i fotoni "rimbalzano" con un angolo pari a quello con cui sono arrivari (riflessione perfetta),
-      infatti a volte l'angolo può subire una variazione, determinata con l'estrazione di un numero casuale con l'utilizzo di una distribuzione uniforme, dove ogni numero ha stessa probabilità di essere estratto.
-      Una volta che abbiamo il nuovo angolo lo utilizziamo per modificare il vettore direzione e dopodichè aggiorniamo la posizione del fotone.
-      Per facilitare il riconoscimento di un fotone che e' stato diffuso ne modifichiamo il colore casualmente.
+      Il fotone si sposta lungo il proprio vettore direzione a ogni passo della simulazione.
     </p>
+
+    <h5>2. Riflessione e diffusione</h5>
     <p>
-      Infine nella parte inferiore della simulazione sono state messe due scritte, una mostra i dati in tempo reale e le percentuali dei fotoni che hanno interagito con l'aria e di quelli che sono riusciti a uscire dalla sezione di fibra ottica.
-      La seconda scritta mostra quanti dei fotoni totali sono stati diffusi ALMENO una volta, non teniamo conto di quante volte viene diffuso ogni singolo fotone, ma solo se ha subito una diffusione o meno.
+  Quando colpisce una parete, il fotone rimbalza. C'è una probabilità <em>d</em> che l’angolo cambi casualmente (diffusione), altrimenti subisce una riflessione perfetta.
+</p>
+
+    <h5>3. Interazione con l'ambiente</h5>
+    <p>
+      Dopo aver percorso una distanza pari al LCM (Libero Cammino Medio), ha una probabilità <em>a</em> di essere assorbito.
+    </p>
+
+    <h5>4. Uscita dalla fibra</h5>
+    <p>
+      Se un fotone raggiunge il lato destro della fibra, è considerato trasmesso.
+    </p>
+
+    <h5>5. Visualizzazione</h5>
+    <p>
+      I fotoni diffusi cambiano colore per essere riconoscibili. In basso a schermo mostriamo in tempo reale:
+      - la percentuale dei fotoni trasmessi,
+      - quelli assorbiti,
+      - e quelli diffusi almeno una volta.
     </p>
 
     <h2>Analisi Statistica</h2>
-    
   </div>
 </body>
 </html>
