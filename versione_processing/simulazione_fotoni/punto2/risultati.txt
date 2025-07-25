@@ -1,0 +1,8 @@
+Analisi statistica - Punto 2c (fotoni richiesti)
+===============================================
+Simulazioni analizzate: 10
+Attesa (media proporzione scappati): 0.5512
+Varianza empirica: 0.000002
+Deviazione standard campionaria: 0.0014
+Intervallo di confidenza desiderato: 0.01
+Numero minimo di fotoni richiesti (95% confidenza): 9504
