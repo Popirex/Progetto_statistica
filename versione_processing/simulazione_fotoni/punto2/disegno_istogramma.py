@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import csv
 
 # Parametri del cavo
-y_min = 100     # bordo superiore (vicino all'origine)
-y_max = 300     # bordo inferiore (lontano dall'origine)
+y_min = 100     # bordo superiore
+y_max = 300     # bordo inferiore
 sezione_cavo = y_max - y_min
 
 # Leggi i dati da uscite_y.csv
@@ -21,8 +21,8 @@ with open(file_input, newline='') as csvfile:
             continue
 
 # Numero di intervalli nell'istogramma
-n_bins = 50
-bin_width = sezione_cavo / n_bins
+n_bins = 40
+bin_width = sezione_cavo / n_bins  # sarà esattamente 5
 
 # Crea figura
 fig, ax = plt.subplots(figsize=(12, 6.5), facecolor='black')
@@ -43,10 +43,9 @@ densita = [count / bin_width for count in n]
 
 for i, rect in enumerate(patches):
     rect.set_height(densita[i])
-    # Etichetta con altezza
     ax.text(
         rect.get_x() + rect.get_width() / 2,
-        densita[i] + max(densita) * 0.01,
+        densita[i] + 5,  # spaziatura sopra la barra
         f"{densita[i]:.1f}",
         ha='center',
         va='bottom',
@@ -55,22 +54,29 @@ for i, rect in enumerate(patches):
         rotation=90
     )
 
-# Inverti asse x: bordo superiore a sinistra
+# Inverti asse x per rappresentare da bordo superiore (100) a inferiore (300)
 ax.invert_xaxis()
 
 # Etichette e titoli
-ax.set_xlabel("Posizione y (da bordo superiore a bordo inferiore)", color='white')
+ax.set_xlabel("Posizione y in uscita (da 100 a 300)", color='white')
 ax.set_ylabel("Densità (fotoni per unità y)", color='white')
 ax.set_title("Distribuzione fotoni in uscita - Punto 2b", color='white')
 ax.tick_params(colors='white')
 
-# Etichetta costante con larghezza bin
-ax.text(0.98, 0.95,
-        f"Larghezza base bin: {bin_width:.2f} unità y",
-        color='white',
-        transform=ax.transAxes,
-        fontsize=9,
-        ha='right')
+# Imposta limite massimo asse y
+ax.set_ylim(0, 500)
+
+# Etichetta larghezza base + spiegazione
+ax.text(
+    0.5, -0.15,
+    f"Ogni cella dell'istogramma ha dimensione {bin_width:.0f} unità y.\n"
+    f"Per ottenere il numero di fotoni per cella, moltiplicare {bin_width:.0f} × il valore scritto sopra ciascuna barra.",
+    color='white',
+    transform=ax.transAxes,
+    fontsize=10,
+    ha='center',
+    va='top'
+)
 
 # Layout e salvataggio
 plt.tight_layout()
