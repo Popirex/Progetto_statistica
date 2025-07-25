@@ -80,5 +80,5 @@ ax.text(
 
 # Layout e salvataggio
 plt.tight_layout()
-plt.savefig("istogramma_uscite.png", dpi=100, facecolor='black')
+plt.savefig(r"C:\Users\Popir\OneDrive\Desktop\Progetto_statistica\immagini\istogramma_uscite.png", dpi=100, facecolor='black')
 plt.show()
