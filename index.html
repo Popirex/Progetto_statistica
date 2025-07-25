@@ -85,7 +85,7 @@
     </p>
 
     <h2>Analisi Statistica</h2>
-    <h5>1. Simulare il tragitto delle particelle:</h5>
+<h5>1. Simulare il tragitto delle particelle:</h5>
 
 <p>Per simulare il tragitto della luce, abbiamo utilizzato un approccio Monte Carlo che modella la luce come singoli fotoni. La nostra implementazione è stata realizzata in Processing, permettendo una gestione ottimizzata delle simulazioni.
 Questo metodo ci ha consentito di tracciare il percorso di ogni fotone e gestirne le interazioni (riflessione, assorbimento o diffusione) in base a parametri probabilistici, come il libero cammino medio (LCM). L'efficienza del nostro codice ci ha permesso di scalare la simulazione fino a 500.000 fotoni, garantendo risultati statisticamente robusti e affidabili, a differenza di simulazioni più semplici.
@@ -93,42 +93,44 @@ Questo metodo ci ha consentito di tracciare il percorso di ogni fotone e gestirn
 
 <h5>2. Raccogliere statistiche rilevanti:</h5>
 <h6>2a / 2c</h6>
+
 <p>
-Per stimare la frazione <strong>T</strong> di particelle trasmesse, abbiamo eseguito 10 simulazioni indipendenti, ciascuna con 100.000 fotoni. I parametri scelti per la simulazione sono: probabilità di assorbimento <strong>a = 0.05</strong>, probabilità di diffusione <strong>d = 0.3</strong> e <strong>lcm_α = 0.1</strong>. In ogni simulazione abbiamo registrato quanti fotoni sono stati trasmessi e calcolato la proporzione rispetto al totale.
+Per stimare la frazione trasmessa <strong>T</strong>, abbiamo eseguito 10 simulazioni da 100.000 fotoni ciascuna. In ogni caso abbiamo contato quanti sono stati trasmessi e calcolato la loro proporzione sul totale.
 </p>
 
 <p>
-Sulla base dei dati ottenuti, abbiamo calcolato l'attesa empirica (media delle proporzioni trasmesse), la varianza empirica e la deviazione standard campionaria. I risultati sono i seguenti:
+Dai dati abbiamo ricavato:
 </p>
 <p>
-  <li>Simulazioni analizzate: <strong>10</strong></li>
-  <li>Attesa (media proporzione trasmessa): <strong>0.5512</strong></li>
-  <li>Varianza empirica: <strong>0.000002</strong></li>
-  <li>Deviazione standard campionaria: <strong>0.0014</strong></li>
+  <li>Simulazioni: <strong>10</strong></li>
+  <li>Media proporzione trasmessa: <strong>0.5512</strong></li>
+  <li>Varianza: <strong>0.000002</strong></li>
+  <li>Deviazione standard: <strong>0.0014</strong></li>
 </p>
 
 <p>
-Con questi valori abbiamo stimato il numero minimo di fotoni necessari affinché l’intervallo <strong>T ± 0.01</strong> contenga il valore reale con una probabilità del 95%. A tale scopo, abbiamo utilizzato la formula:
+Per garantire che l’intervallo <strong>T ± 0.01</strong> contenga il valore reale con probabilità del 95%, abbiamo usato la formula:
 <br>
 <em>N ≥ (1.96 × s / 0.01)<sup>2</sup></em>,
-dove <em>s</em> è la deviazione standard campionaria, <strong>1.96</strong> è il valore critico <em>z<sub>0.025</sub></em> per un intervallo bilaterale al 95%, e <strong>0.01</strong> rappresenta l'errore massimo tollerato nella stima di T.
+dove <strong>1.96</strong> è il valore <em>z<sub>0.025</sub></em> per un intervallo bilaterale e <strong>0.01</strong> è l’errore massimo accettabile.
 <br>
-Il numero minimo risultante è di <strong>9504 fotoni</strong>, a conferma che le nostre simulazioni da 100.000 fotoni ciascuna forniscono una stima ampiamente affidabile della quantità trasmessa.
+Risultato: servono almeno <strong>9504 fotoni</strong>, ben sotto i 100.000 usati per ogni simulazione.
 </p>
 
 <h6>2b</h6>
 
 <p>
-Per analizzare la distribuzione spaziale dei fotoni trasmessi in uscita, abbiamo registrato la coordinata <em>y</em> di ogni fotone che ha attraversato il cavo. Il cavo ha una sezione verticale compresa tra <strong>y = 100</strong> (bordo superiore) e <strong>y = 300</strong> (bordo inferiore).
+Per studiare la distribuzione spaziale dei fotoni trasmessi, abbiamo registrato la coordinata <em>y</em> in uscita. Il cavo copre l’intervallo <strong>100 ≤ y ≤ 300</strong>.
 </p>
 
 <p>
-Abbiamo suddiviso questa sezione in <strong>40 intervalli</strong> di larghezza uniforme pari a <strong>5 unità</strong> ciascuno e costruito un istogramma, dove ogni barra rappresenta il numero di fotoni trasmessi in quell’intervallo. L’altezza delle barre è calcolata come <em>conteggio / larghezza</em>, in modo che il prodotto base × altezza corrisponda effettivamente al numero di fotoni per sezione. Questo consente di ottenere una rappresentazione coerente e proporzionata della densità spaziale dei fotoni trasmessi.
+Abbiamo diviso questa sezione in <strong>40 intervalli</strong> da <strong>5 unità</strong> e generato un istogramma. Ogni barra mostra la densità di fotoni (conteggi divisi per la base), così che altezza × base dia il numero effettivo in ogni sezione.
 </p>
 
 <p>
-I valori <strong>100</strong> e <strong>300</strong> sull’asse orizzontale dell’istogramma indicano i bordi reale superiore e inferiore del cavo nella simulazione. Per ottenere il numero effettivo di fotoni in una sezione, è sufficiente moltiplicare la larghezza dell’intervallo (5 unità) per il valore dell’altezza mostrato sopra ciascuna barra.
+I valori <strong>100</strong> e <strong>300</strong> sull’asse indicano i bordi reali del cavo. Per ottenere il numero di fotoni in una sezione, basta moltiplicare l’altezza della barra per <strong>5</strong>.
 </p>
+
 
 <div class="text-center my-4">
       <img src="immagini/istogramma_uscite.png" alt="Istogramma coordinate dei fotoni trasmessi" class="img-fluid rounded shadow">
