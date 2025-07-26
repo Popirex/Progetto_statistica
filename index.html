@@ -25,7 +25,9 @@
     </div>
 
     <p>
-      Questa simulazione mostra come si comportano fotoni che attraversano una fibra ottica. Il modello si basa su un approccio probabilistico di tipo Monte Carlo.
+      Questa simulazione mostra come si comportano fotoni che attraversano una fibra ottica. Il modello si basa su un approccio probabilistico di tipo<a href="https://it.wikipedia.org/wiki/Metodo_Monte_Carlo" target="_blank" style="font-weight: bold; color: #00bfff; text-decoration: underline;">
+    Monte Carlo
+  </a>.
     </p>
 
     <h2>Simulazione in tempo reale</h2>
@@ -92,7 +94,7 @@ Questo metodo ci ha consentito di tracciare il percorso di ogni fotone e gestirn
 </p>
 
 <h5>2. Raccogliere statistiche rilevanti:</h5>
-<h6>2a / 2c</h6>
+<h6>Punti a/c</h6>
 
 <p>
 Per stimare la frazione trasmessa <strong>T</strong>, abbiamo eseguito 10 simulazioni da 100.000 fotoni ciascuna. In ogni caso abbiamo contato quanti sono stati trasmessi e calcolato la loro proporzione sul totale.
@@ -117,7 +119,7 @@ dove <strong>1.96</strong> è il valore <em>z<sub>0.025</sub></em> per un interv
 Risultato: servono almeno <strong>9504 fotoni</strong>, ben sotto i 100.000 usati per ogni simulazione.
 </p>
 
-<h6>2b</h6>
+<h6>Punto b</h6>
 
 <p>
 Per studiare la distribuzione spaziale dei fotoni trasmessi, abbiamo registrato la coordinata <em>y</em> in uscita. Il cavo copre l’intervallo <strong>100 ≤ y ≤ 300</strong>.
@@ -138,7 +140,44 @@ I valori <strong>100</strong> e <strong>300</strong> sull’asse indicano i bord
 
 <h5>3. Analizzare le prestazioni:</h5>
 
+<p>
 
-  </div>
+</p>
+
+<h5>4. Effettuare una analisi statistica dei fotoni trasmessi:</h5>
+
+<h6>Punto a</h6>
+
+<p>
+Per analizzare statisticamente la frazione di fotoni trasmessi, abbiamo considerato i risultati di 10 simulazioni indipendenti con <strong>100.000 fotoni ciascuna</strong>, utilizzando parametri <strong>a = 0.05</strong>, <strong>d = 0.3</strong> e <strong>lcm_α = 0.1</strong>, che ci sono sembrati adeguati visti i risultati delle simulazioni.
+</p>
+
+<p>
+Abbiamo calcolato la <strong>media (attesa)</strong> empirica della proporzione trasmessa, ottenendo un valore di <strong>0.5512</strong>. Questo rappresenta la stima della probabilità che un fotone venga trasmesso nelle condizioni date.
+</p>
+
+<p>
+La <strong>varianza empirica</strong> tra le 10 simulazioni è risultata <strong>0.000002</strong>, con una <strong>deviazione standard</strong> campionaria di <strong>0.0014</strong>. Questi valori quantificano la variabilità delle simulazioni e danno un’indicazione della stabilità della stima della trasmissione.
+</p>
+
+<p>
+Questa analisi conferma che, a parità di condizioni, la stima della frazione trasmessa risulta affidabile e ben concentrata attorno all’attesa.
+</p>
+
+<h6>Punto b</h6>
+
+<div class="text-center my-4">
+      <img src="immagini/Grafico_LCM-T.png" alt="Grafico_LCM-T con retta di regressione" class="img-fluid rounded shadow">
+</div>
+
+<p>
+  Il grafico mostra come varia il numero di fotoni trasmessi <strong>T</strong> al crescere del parametro <strong>LCM</strong> (libero cammino medio), espresso come multiplo della lunghezza del cavo <em>L</em>. Per valori piccoli di LCM, i fotoni interagiscono frequentemente con il mezzo, riducendo drasticamente la probabilità di attraversamento. Al crescere del LCM, T aumenta rapidamente fino a stabilizzarsi attorno al massimo valore possibile (500.000 fotoni trasmessi su 500.000 simulati), indicando trasparenza quasi totale del cavo.
+</p>
+
+<p>
+  È stata calcolata una retta di regressione nei valori iniziali, con equazione <strong>y = 416234x − 5636,8</strong> e coefficiente di determinazione <strong>R² = 0,9617</strong>, che suggerisce un'ottima correlazione lineare tra LCM e T in quella fascia. Questo comportamento conferma che il LCM ha un ruolo cruciale nella trasmissione solo nei primi intervalli: superato un certo valore soglia (tra 1 e 1.2), l’effetto si satura e ulteriori aumenti non influenzano più la trasmissività del mezzo.
+</p>
+
+
 </body>
 </html>
