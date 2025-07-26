@@ -122,7 +122,8 @@ class Fotone{
     /*DISEGNO LA TRAIETTORIA DEL FOTONE */
     if(this.visione_traiettoria == 1){
     noFill();
-    stroke(0, 50);
+    strokeWeight(1);
+    stroke(0, 100);
     beginShape();
     for(let p of this.traiettoria){
       vertex(p.x, p.y);

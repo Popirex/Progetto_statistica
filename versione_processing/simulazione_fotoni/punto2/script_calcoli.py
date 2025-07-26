@@ -29,7 +29,7 @@ dev_std = math.sqrt(varianza)
 z_95 = 1.96
 errore_max = 0.01
 
-# ⚠️ Questo è il valore che ti serve per il punto 2c:
+
 # Numero minimo di FOTONI per stimare p con errore massimo ±0.01 al 95%
 n_fotoni_minimi = (z_95 ** 2 * media * (1 - media)) / (errore_max ** 2)
 

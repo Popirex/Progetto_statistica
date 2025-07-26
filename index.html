@@ -58,21 +58,26 @@
       posizione casuale nella sezione della fibra, direzione (casuale o parallela) e colore.
     </p>
 
+    
     <h5>1. Movimento</h5>
     <p>
       Il fotone si sposta lungo il proprio vettore direzione a ogni passo della simulazione.
     </p>
+
+    
 
     <h5>2. Riflessione e diffusione</h5>
     <p>
   Quando colpisce una parete, il fotone rimbalza. C'è una probabilità <em>d</em> che l’angolo cambi casualmente (diffusione), altrimenti subisce una riflessione perfetta.
 </p>
 
+
     <h5>3. Interazione con l'ambiente</h5>
     <p>
       Dopo aver percorso una distanza pari al LCM (Libero Cammino Medio), ha una probabilità <em>a</em> di essere assorbito.
     </p>
 
+    
     <h5>4. Uscita dalla fibra</h5>
     <p>
       Se un fotone raggiunge il lato destro della fibra, è considerato trasmesso.
@@ -87,12 +92,15 @@
     </p>
 
     <h2>Analisi Statistica</h2>
+
+    <!--PUNTO 1-->
 <h5>1. Simulare il tragitto delle particelle:</h5>
 
 <p>Per simulare il tragitto della luce, abbiamo utilizzato un approccio Monte Carlo che modella la luce come singoli fotoni. La nostra implementazione è stata realizzata in Processing, permettendo una gestione ottimizzata delle simulazioni.
 Questo metodo ci ha consentito di tracciare il percorso di ogni fotone e gestirne le interazioni (riflessione, assorbimento o diffusione) in base a parametri probabilistici, come il libero cammino medio (LCM). L'efficienza del nostro codice ci ha permesso di scalare la simulazione fino a 500.000 fotoni, garantendo risultati statisticamente robusti e affidabili, a differenza di simulazioni più semplici.
 </p>
 
+<!--PUNTO 2-->
 <h5>2. Raccogliere statistiche rilevanti:</h5>
 <h6>Punti a/c</h6>
 
@@ -138,6 +146,8 @@ I valori <strong>100</strong> e <strong>300</strong> sull’asse indicano i bord
       <img src="immagini/istogramma_uscite.png" alt="Istogramma coordinate dei fotoni trasmessi" class="img-fluid rounded shadow">
 </div>
 
+
+<!--PUNTO 3-->
 <h5>3. Analizzare le prestazioni:</h5>
 
 <div class="text-center my-4">
@@ -149,6 +159,9 @@ I valori <strong>100</strong> e <strong>300</strong> sull’asse indicano i bord
 <p>Con l'uso di luce polarizzata, si osserva l'effetto opposto: i fotoni interagiscono meno con l'aria e, di conseguenza, un numero maggiore di essi riesce a uscire dal cavo. Un dato fondamentale è che la polarizzazione elimina completamente la deviazione casuale dei fotoni, garantendo un percorso più diretto.</p>
 <h6>Probabilità d:</h6>
 <p>Infine, al variare della probabilità 'd' (rimbalzo con angolo casuale), i dati indicano che più 'd' è alta, più fotoni escono dal cavo. Questa dinamica, apparentemente inaspettata, può essere spiegata dal fatto che, aumentando la probabilità di un rimbalzo con angolo casuale, il fotone ha una maggiore possibilità di trovare un angolo favorevole che lo indirizzi direttamente verso l'uscita. Questo riduce il tempo complessivo di permanenza all'interno del tubo, diminuendo così il rischio di interazioni e perdite.</p>
+
+
+<!--PUNTO 4-->
 
 <h5>4. Effettuare una analisi statistica dei fotoni trasmessi:</h5>
 
