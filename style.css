@@ -27,25 +27,25 @@
   
   /* Titoli */
   h1, h2 {
-    color: #A8DADC;
+    color: #CFFFE2;
     margin-bottom: 1rem;
   }
 
   h5 {
-    color: #6a3ba3;
+    color: #CFFFE2;
     margin-bottom: 30px;
   }
   
   /* Paragrafi */
   p {
-    color: #DADADA;
+    color: #F6F6F6;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.6;
   }
 
   .titolo-spiegazione {
-    color: 	#B39CD0;
+    color: 	#A2D5C6;
   }
   
 
