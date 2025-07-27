@@ -8,7 +8,7 @@
   /* Tema generale */
   body {
     background-color: #121212;
-    color: #e0e0e0;
+    color: #DADADA;
     font-family: 'Segoe UI', sans-serif;
     display: flex;
     flex-direction: column;
@@ -27,19 +27,25 @@
   
   /* Titoli */
   h1, h2 {
-    color: #ffffff;
+    color: #A8DADC;
     margin-bottom: 1rem;
   }
 
   h5 {
+    color: #b18ddd;
     margin-bottom: 30px;
   }
   
   /* Paragrafi */
   p {
+    color: #DADADA;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.6;
+  }
+
+  .titolo-spiegazione {
+    color: 	#B39CD0;
   }
   
 
