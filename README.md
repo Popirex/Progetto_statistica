@@ -3,8 +3,8 @@
 Simulazione Monte Carlo per lo studio della trasmissione della luce all'interno di una sezione di fibra ottica.
 
 ## Autori
-- Alessandro Rossi ([GitHub](https://github.com/Popirex))
-- Tommaso Lana ([GitHub](https://github.com/Lanetto))
+- Alessandro ([GitHub](https://github.com/Popirex))
+- Tommaso ([GitHub](https://github.com/Lanetto))
 
 ## Descrizione
 Questo progetto è stato sviluppato come parte dell'esame orale finale del corso di Probabilità e Statistica.  
